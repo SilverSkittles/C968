@@ -1,0 +1,43 @@
+﻿<Window x:Class="SystemInventory.ProductsFiles.AddProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SystemInventory.ProductsFiles"
+        mc:Ignorable="d"
+        Title="AddProduct" Height="450" Width="800">
+    <Grid>
+        <Label Content="Add a Product to Inventory" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <TextBox x:Name="Product_ID" HorizontalAlignment="Left" Height="22" Margin="121,91,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" AutomationProperties.HelpText="Part ID" IsReadOnly="True"/>
+        <TextBox x:Name="Product_Name" HorizontalAlignment="Left" Height="22" Margin="121,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" AutomationProperties.HelpText="Part Name"/>
+        <TextBox x:Name="Inventory" HorizontalAlignment="Left" Height="22" Margin="120,178,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" />
+        <TextBox x:Name="Price" HorizontalAlignment="Left" Height="22" Margin="121,217,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="149"/>
+        <TextBox x:Name="Max" HorizontalAlignment="Left" Height="22" Margin="120,264,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" />
+        <TextBox x:Name="Min" HorizontalAlignment="Left" Height="22" Margin="119,304,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="149"/>
+        <Button x:Name="BtnSaveProduct" Content="Save" HorizontalAlignment="Left" Height="29" Margin="159,383,0,0" VerticalAlignment="Top" Width="186" Click="BtnSaveProduct_Click"/>
+        <Button x:Name="CancelSaveButton" Content="Cancel" HorizontalAlignment="Left" Height="29" Margin="387,383,0,0" VerticalAlignment="Top" Width="186" Click="CancelSaveButton_Click"/>
+        <Label Content="Product ID" HorizontalAlignment="Left" Height="23" Margin="15,90,0,0" VerticalAlignment="Top" Width="66" AutomationProperties.IsColumnHeader="True"/>
+        <Label Content="Product Name" HorizontalAlignment="Left" Height="23" Margin="14,134,0,0" VerticalAlignment="Top" Width="102" AutomationProperties.IsColumnHeader="True"/>
+        <Label Content="Inventory" HorizontalAlignment="Left" Height="35" Margin="15,177,0,0" VerticalAlignment="Top" Width="66" AutomationProperties.IsColumnHeader="True"/>
+        <Label Content="Price" HorizontalAlignment="Left" Height="23" Margin="14,217,0,0" VerticalAlignment="Top" Width="79" AutomationProperties.IsColumnHeader="True"/>
+        <Label Content="Max" HorizontalAlignment="Left" Height="23" Margin="15,264,0,0" VerticalAlignment="Top" Width="66" AutomationProperties.IsColumnHeader="True"/>
+        <Label Content="Min" HorizontalAlignment="Left" Height="33" Margin="15,304,0,0" VerticalAlignment="Top" Width="66" AutomationProperties.IsColumnHeader="True"/>
+        <DataGrid x:Name="DgProdParts" HorizontalAlignment="Left" Height="95" Margin="416,86,0,0" VerticalAlignment="Top" Width="355" SelectionChanged="DgProdParts_SelectionChanged" />
+        <DataGrid x:Name="DgFilteredParts" HorizontalAlignment="Left" Height="95" Margin="416,236,0,0" VerticalAlignment="Top" Width="355" SelectionChanged="DgFilteredParts_SelectionChanged"/>
+        <Button x:Name="BtnSearchParts" Content="Search" HorizontalAlignment="Left" Margin="523,45,0,0" VerticalAlignment="Top" Width="80" Click="BtnSearchParts_Click"/>
+        <TextBox x:Name="SearchPartBox" HorizontalAlignment="Left" Height="30" Margin="621,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="BtnAddPartToProduct" Content="Add" HorizontalAlignment="Left" Margin="696,197,0,0" VerticalAlignment="Top" Width="74" Click="BtnAddPartToProduct_Click"/>
+        <Button x:Name="BtnDeletePartFromProduct" Content="Delete" HorizontalAlignment="Left" Margin="695,353,0,0" VerticalAlignment="Top" Width="75" Click="BtnDeletePartFromProduct_Click"/>
+        <Label Content="All Candidate Parts" HorizontalAlignment="Left" Height="24" Margin="412,58,0,0" VerticalAlignment="Top" Width="auto"/>
+        <Label Content="Parts associated with this product" HorizontalAlignment="Left" Height="24" Margin="413,209,0,0" VerticalAlignment="Top" Width="auto"/>
+        <Grid.Resources>
+            <Style TargetType="DataGridCell">
+                <Style.Triggers>
+                    <Trigger Property="DataGridCell.IsSelected" Value="True">
+                        <Setter Property="Background" Value="DodgerBlue" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+    </Grid>
+</Window>
